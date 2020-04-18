@@ -1,0 +1,20 @@
+{% extends "homepage.html" %}
+{% block title %}
+    HOME PAGE
+{% endblock%}
+{% block main %}
+
+<h2>Add a publisher</h2>
+    <form method="POST" action="/addrecord">
+        <table>
+           <!----- <tr><td><input type="number" name="Id">Id</td></tr>---->
+            <tr><td><input type="text" name="Name">Publisher name</td></tr>
+            <tr><td><input type="text" name="Hours">Hours</td></tr>
+            <tr><td><input type="text" name="Returns">Returns</td></tr>
+            <tr><td><input type="text" name="Publications">Publications</td></tr>
+            <tr><td><input type="text" name="Videos">Videos</td></tr> 
+            <tr><td><button type="submit">Submit</button></td></tr>
+        </table>
+    </form>
+<a href="/">Go back to homepage</a>
+{% endblock %}

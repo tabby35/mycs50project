@@ -1,0 +1,29 @@
+{% extends "homepage.html"%}
+{% block title %}
+    VIEW
+{% endblock %}
+{%  block main %}
+<table border="5">
+    <th>
+        <!--<td>ID</td>-->
+        <td>NAME</td>
+        <td>HOURS</td>
+        <td>RETURNS</td>
+        <td>PUBLICATIONS</td>
+        <td>VIDEOS</td>
+    </th>
+    {% for row in rows %}
+        <tr>
+            <td>{{row["Id"]}}</td>
+            <td>{{row["Name"]}}</td>
+            <td>{{row["Hours"]}}</td>
+            <td>{{row["Returns"]}}</td>
+            <td>{{row["Publications"]}}</td>
+            <td>{{row["Videos"]}}</td>
+        </tr>
+    {% endfor %}
+    <br>
+    <br>
+    <a href="/">Go back to homepage</a>
+</table>
+{% endblock %}

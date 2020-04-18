@@ -1,0 +1,32 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>save details</title>  
+</head>  
+<body>  
+    <h3>Hi Admin, {{msg}}</h3>  
+    <a href="/view">View Employees</a>  
+</body>  
+</html>  
+@app.route("/addrecord" , methods=["POST","GET"])
+def addrecord():
+    messsage="message"
+    if request.method=="POST":
+        try:
+            Id=request.form["Id"]
+            publisher=request.form["Name"]
+            Hours=request.form["Hours"]
+            Returns=request.form["Returns"]
+            Publications=request.form["Publications"]
+            Videos=request.form["Videos"]
+            with sqlite.connect("cong.db") as con:
+                cur=con.cursor()
+                cur.execute("INSERT INTO data (Id,Name,Hours,Returns,Publications,Videos) VALUES (?,?,?,?,?,?)", (Id,publisher,Hours,Returns,Publications,Videos))
+                cur.commit()
+                message="SUCCESSFULLY ADDED!"
+        except:
+            cur.rollback()
+            message="COULD NOT ADD THE DATA!"
+        finally:
+            return render_template("success.html",message=message)
+            cur.close()

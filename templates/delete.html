@@ -1,0 +1,14 @@
+{% extends "homepage.html"%}
+{% block title %}
+    DELETE
+{% endblock %}
+{% block main %}
+
+    <form action="/deleterecord" method="POST">
+        <table>
+            <input name="Name" placeholder="Name">
+          <!----- <input type="text" name="Name" placeholder="Name">--->
+            <button type="submit" >Submit</button>
+        </table>
+    </form>
+{% endblock %}
